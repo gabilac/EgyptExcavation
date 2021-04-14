@@ -1,0 +1,152 @@
+﻿@{ ViewBag.Header = "Create Textile Record";}
+
+@model Textile
+
+<div class="col-12 card shadow p-5 m-auto" style="width: 50rem;">
+    <div class="row border border-dark p-2">
+        <div class="col-12 border border-dark p-2">
+            <div class="lead text-center p-2">Textile #1</div>
+        </div>
+    </div>
+    <div class="row border border-dark p-2">
+        <div class="col-6 border border-dark p-2">
+            <div class="lead text-center p-2">Analysis Details</div>
+            <div class="row">
+                <div class="col-6 text-right">
+                    Sample ID#:<br />
+                    Date:<br />
+                    Type:<br />
+                    Initials:<br />
+                    Photo Date:<br />
+                    Sample Date:<br />
+                    Scientific Date:<br />
+                    Copy?<br />
+                </div>
+                <div class="col-6 text-left font-weight-bold">
+                    @Model.AnalysisDate<br />
+                    @Model.AnalysisType<br />
+                    @Model.Analyst<br />
+                    @Model.PhotoDate<br />
+                    @Model.SampledDate<br />
+                    @Model.ScientificDate<br />
+                    @Model.Copy<br />
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    Function: <br />
+                    <span class="font-weight-bold">
+                        @Model.Function<br />
+                    </span>
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    Decoration: <br />
+                    <span class="font-weight-bold">
+                        @Model.Decoration<br />
+                    </span>
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    Color: <br />
+                    <span class="font-weight-bold">
+                        @Model.Color<br />
+                    </span>
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    Component:<br />
+                    <span class="font-weight-bold">
+                        @Model.Component<br />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 border border-dark p-2">
+            <div class="lead text-center p-2">Warp &amp; Weft Details</div>
+            <div class="row">
+                <div class="col-6 text-right">
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Manipulation: <br />
+                            <span class="font-weight-bold">
+                                @Model.Manipulation<br />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Ply: <br />
+                            <span class="font-weight-bold">
+                                @Model.Ply<br />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Angle: <br />
+                            <span class="font-weight-bold">
+                                @Model.Angle<br />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Thickness: <br />
+                            <span class="font-weight-bold">
+                                @Model.Thickness<br />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-left">
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Material: <br />
+                            <span class="font-weight-bold">
+                                @Model.Material<br />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Dimension: <br />
+                            <span class="font-weight-bold">
+                                @Model.Dimension<br />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Count: <br />
+                            <span class="font-weight-bold">
+                                @Model.Count<br />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            Category:<br />
+                            <span class="font-weight-bold">
+                                @Model.Category<br />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-left border border-dark">
+            Description:
+            <span class="font-weight-bold">
+                @Model.Description<br />
+            </span>
+        </div>
+    </div>
+</div>

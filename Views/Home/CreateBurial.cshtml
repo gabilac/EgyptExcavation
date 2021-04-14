@@ -1,0 +1,728 @@
+﻿@{ ViewBag.Header = "Create Burial Record";
+}
+
+@model BurialViewModel
+
+<form asp-controller="Home" asp-action="CreateBurial" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto" align="center">
+                <div class="col-12 card shadow p-5 m-3" style="width: 50rem;">
+                    <div class="row border border-dark p-2">
+                        <div class="col-12 border border-dark p-2">
+                            <div class="lead text-center p-2">Burial Record #_</div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-7 border border-dark p-2">
+                            <div class="lead text-center p-2">Location</div>
+                            <div class="row">
+                                <div class="col-6 text-right font-weight-bold">
+                                    <label asp-for="Square.NsDistance" class="pt-2 pb-2">N/S Distance:</label><br />
+                                    <label asp-for="Square.Ns" class="pt-2 pb-1">North or South?</label><br />
+                                    <label asp-for="Square.EwDistance" class="pt-1 pb-2">E/W Distance:</label><br />
+                                    <label asp-for="Square.Ew" class="pt-1 pb-1">East or West?</label><br />
+                                    <label asp-for="Burial.Quadrant" class="pt-1 pb-3">Quadrant:</label><br />
+                                    <label asp-for="Burial.DayFound" class="pt-2 pb-2">Day Found:</label><br />
+                                    <label asp-for="Burial.MonthFound" class="pt-2 pb-2">Month Found:</label><br />
+                                    <label asp-for="Burial.YearFound" class="pt-2 pb-4">Year Found:</label><br />
+                                    <label asp-for="Burial.DayExcavated" class="pt-2 pb-2">Day Excavated:</label><br />
+                                    <label asp-for="Burial.MonthExcavated" class="pt-2 pb-2">Month Excavated:</label><br />
+                                    <label asp-for="Burial.YearExcavated" class="pt-2 pb-4">Year Excavated:</label><br />
+                                    <label asp-for="Burial.Category" class="pt-2 pb-2">Category:</label><br />
+                                    <label asp-for="Burial.BurialType" class="pt-3 pb-3">Burial Type:</label><br />
+                                    <label asp-for="Burial.TombNo" class="pt-2 pb-2">Tomb Number:</label><br />
+                                </div>
+                                <div class="col-6 text-left">
+                                    <input type="number" class="form-control form-control-sm" asp-for="Square.NsDistance" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="N" name="Ns" value="N">
+                                            <label for="N">N</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="S" name="Ns" value="S">
+                                            <label for="S">S</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Square.EwDistance" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="E" name="Ew" value="E">
+                                            <label for="E">E</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="W" name="Ew" value="W">
+                                            <label for="W">W</label><br>
+                                        </div>
+                                    </div>
+                                    <select id="Quadrant" class="form-control form-control-sm" asp-for="Burial.Quadrant">
+                                        <option value="NE">NE</option>
+                                        <option value="NW">NW</option>
+                                        <option value="SE">SE</option>
+                                        <option value="SW">SW</option>
+                                    </select><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.DayFound" /><br />
+                                    <select id="MonthFound" class="form-control form-control-sm" asp-for="Burial.MonthFound">
+                                        <option value="Jan">January</option>
+                                        <option value="Feb">February</option>
+                                        <option value="Mar">March</option>
+                                        <option value="Apr">April</option>
+                                        <option value="May">May</option>
+                                        <option value="Jun">June</option>
+                                        <option value="Jul">July</option>
+                                        <option value="Aug">August</option>
+                                        <option value="Sep">September</option>
+                                        <option value="Oct">October</option>
+                                        <option value="Nov">November</option>
+                                        <option value="Dec">December</option>
+                                    </select><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.YearFound" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.DayExcavated" /><br />
+                                    <select id="MonthExcavated" class="form-control form-control-sm" asp-for="Burial.MonthExcavated">
+                                        <option value="Jan">January</option>
+                                        <option value="Feb">February</option>
+                                        <option value="Mar">March</option>
+                                        <option value="Apr">April</option>
+                                        <option value="May">May</option>
+                                        <option value="Jun">June</option>
+                                        <option value="Jul">July</option>
+                                        <option value="Aug">August</option>
+                                        <option value="Sep">September</option>
+                                        <option value="Oct">October</option>
+                                        <option value="Nov">November</option>
+                                        <option value="Dec">December</option>
+                                    </select><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.YearExcavated" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.Category" /><br />
+                                    <div class="row">
+                                        <div class="col-4 text-sm">
+                                            <input type="radio" id="tomb" asp-for="Burial.BurialType" value="tomb">
+                                            <label for="tomb">Tomb</label><br>
+                                        </div>
+                                        <div class="col-4 text-sm">
+                                            <input type="radio" id="misc" asp-for="Burial.BurialType" value="misc">
+                                            <label for="misc">Misc.</label><br>
+                                        </div>
+                                        <div class="col-4 text-sm">
+                                            <input type="radio" id="other" asp-for="Burial.BurialType" value="other">
+                                            <label for="other">Other</label>
+                                        </div>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.TombNo" /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 border border-dark p-2">
+                            <div class="lead text-center p-2">Body Position</div>
+                            <div class="row">
+                                <div class="col-7 text-right font-weight-bold">
+                                    <label asp-for="Burial.WtoHead" class="">West to Head:</label><br /><br />
+                                    <label asp-for="Burial.WtoFeet" class="">West to Feet:</label><br /><br />
+                                    <label asp-for="Burial.StoHead" class="">South to Head:</label><br /><br />
+                                    <label asp-for="Burial.StoFeet" class="">South to Feet:</label><br /><br />
+                                    <label asp-for="Burial.Byusample" class="">BYU Sample?</label><br /><br />
+                                    <label asp-for="Burial.RackShelf" class="">Rack/Shelf Number:</label><br /><br />
+                                </div>
+                                <div class="col-5 text-left">
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.WtoHead" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.WtoFeet" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.StoHead" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.StoFeet" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="BYUYes" asp-for="Burial.Byusample" value="true">
+                                            <label for="BYUYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="BYUNo" asp-for="Burial.Byusample" value="false">
+                                            <label for="BYUNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.RackShelf" /><br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-left">
+                                    <hr class="border border-dark" />
+                                    <label asp-for="Burial.Notes" class="">Location Notes:</label>
+                                    <textarea  rows="12" class="form-control form-control-sm" asp-for="Burial.Notes"></textarea><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-12">
+                            <div class="lead text-center p-2">Samples</div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-7 border border-dark">
+                            <div class="row p-2 text-left">
+                                <label asp-for="Burial.SampleDesc" class="font-weight-bold">Sample Description:</label>
+                                <textarea  rows="8" class="form-control form-control-sm" asp-for="Burial.SampleDesc"></textarea><br />
+                            </div>
+                            <div class="row p-2 border-top border-dark text-left">
+                                <label asp-for="Burial.ArtifactDesc" class="font-weight-bold">Artifact Description:</label>
+                                <textarea  rows="8" class="form-control form-control-sm" asp-for="Burial.ArtifactDesc"></textarea><br />
+                            </div>
+                        </div>
+                        <div class="col-5 border border-dark">
+                            <div class="row">
+                                <div class="col-5 text-right font-weight-bold">
+                                    <label asp-for="Burial.HairTaken" class="">Hair Taken?</label><br /><br />
+                                    <label asp-for="Burial.SoftTissueTaken" class="">Tissue Taken?</label><br /><br />
+                                    <label asp-for="Burial.BoneTaken" class="">Bone Taken?</label><br /><br />
+                                    <label asp-for="Burial.TextileTaken" class="">Textile Taken?</label><br /><br />
+                                    <label asp-for="Burial.SampleTaken" class="">Other Taken?</label><br /><br />
+                                    <label asp-for="Burial.SampleNo" class="">Sample Number:</label><br /><br />
+                                    <label asp-for="Burial.ArtifactFound" class="">Artifact Taken?</label><br /><br />
+                                </div>
+                                <div class="col-7 text-left">
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="hairYes" asp-for="Burial.HairTaken" value="true">
+                                            <label for="hairYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="hairNo" asp-for="Burial.HairTaken" value="false">
+                                            <label for="hairNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="softTissueYes" asp-for="Burial.SoftTissueTaken" value="true">
+                                            <label for="softTissueYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="softTissueNo" asp-for="Burial.SoftTissueTaken" value="false">
+                                            <label for="softTissueNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="toothYes" asp-for="Burial.ToothTaken" value="true">
+                                            <label for="toothYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="toothNo" asp-for="Burial.ToothTaken" value="false">
+                                            <label for="toothNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="boneYes" asp-for="Burial.BoneTaken" value="true">
+                                            <label for="boneYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="boneNo" asp-for="Burial.BoneTaken" value="false">
+                                            <label for="boneNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="textileYes" asp-for="Burial.TextileTaken" value="true">
+                                            <label for="textileYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="textileNo" asp-for="Burial.TextileTaken" value="false">
+                                            <label for="textileNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="sampleYes" asp-for="Burial.SampleTaken" value="true">
+                                            <label for="sampleYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="sampleNo" asp-for="Burial.SampleTaken" value="false">
+                                            <label for="sampleNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.SampleNo" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="artifactYes" asp-for="Burial.ArtifactFound" value="true">
+                                            <label for="artifactYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="artifactNo" asp-for="Burial.ArtifactFound" value="false">
+                                            <label for="artifactNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-12">
+                            <div class="lead text-center p-2">Individual</div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-6 border border-dark">
+                            <div class="lead text-center p-2">Burial Details</div>
+                            <div class="row">
+                                <div class="col-7 text-right font-weight-bold">
+                                    <label asp-for="Burial.BurialWrapping" class="">Burial Wrapping:</label><br /><br />
+                                    <label asp-for="Burial.PreservationIndex" class="">Preservation Index:</label><br /><br />
+                                    <label asp-for="Burial.PreservationNotes" class="">Preservation Notes:</label><br /><br />
+                                    <label asp-for="Burial.Depth" class="">Depth:</label><br /><br />
+                                    <label asp-for="Burial.HeadDirection" class="">Head Direction:</label><br />
+                                    <label asp-for="Burial.Cluster" class="pt-1 pb-1">Cluster:</label><br />
+                                    <label asp-for="Burial.HillArea" class="">Hill Area:</label><br /><br />
+                                    <label asp-for="Burial.LengthofRemains" class="">Length of Remains:</label><br /><br />
+                                    <label asp-for="Burial.PhotoTaken" class="">Photo Taken?</label><br />
+                                    <label asp-for="Burial.Shaft" class="">Shaft:</label><br /><br />
+                                    <label asp-for="Burial.SharedShaft" class="pt-1">Shared Shaft?</label><br /><br />
+                                    <label asp-for="Burial.BurialMaterials" class="pt-1 pb-1">Burial Materials?</label><br />
+                                    <label asp-for="Burial.ExcavationRecorder" class="">Excavation Recorder:</label><br /><br />
+                                </div>
+                                <div class="col-5 text-left">
+                                    <select id="BurialWrapping" class="form-control form-control-sm" asp-for="Burial.BurialWrapping">
+                                        <option value="W">Full wrappings</option>
+                                        <option value="H">Partial wrappings</option>
+                                        <option value="B">Bones and/or partial wrappings</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <select id="PreservationIndex" class="form-control form-control-sm" asp-for="Burial.PreservationIndex">
+                                        <option value="1">I</option>
+                                        <option value="2">II</option>
+                                        <option value="3">III</option>
+                                        <option value="4">IV</option>
+                                        <option value="5">V</option>
+                                    </select><br />
+                                    <textarea id="PreservationNotes" class="form-control form-control-sm" asp-for="Burial.PreservationNotes"></textarea>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.Depth" step="0.01" /><br />
+                                    <select id="HeadDirection" class="form-control form-control-sm" asp-for="Burial.HeadDirection">
+                                        <option value="W">West</option>
+                                        <option value="E">East</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="clusterYes" asp-for="Burial.Cluster" value="true">
+                                            <label for="clusterYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="clusterNo" asp-for="Burial.Cluster" value="false">
+                                            <label for="clusterNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.HillArea" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.LengthofRemains" step="0.01" /><br />
+                                    <div class="row">
+                                            <div class="col-6 text-sm">
+                                                <input type="radio" id="photoYes" asp-for="Burial.PhotoTaken" value="true">
+                                                <label for="photoYes">Yes</label><br>
+                                            </div>
+                                            <div class="col-6 text-sm">
+                                                <input type="radio" id="photoNo" asp-for="Burial.PhotoTaken" value="false">
+                                                <label for="photoNo">No</label><br>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" asp-for="Burial.Shaft" /><br />
+                                        <div class="row">
+                                            <div class="col-4 text-sm">
+                                                <input type="radio" id="sharedYes" asp-for="Burial.SharedShaft" value="Y">
+                                                <label for="sharedYes">Yes</label><br>
+                                            </div>
+                                            <div class="col-4 text-sm">
+                                                <input type="radio" id="sharedNo" asp-for="Burial.SharedShaft" value="N">
+                                                <label for="sharedNo">No</label><br>
+                                            </div>
+                                            <div class="col-4 text-sm">
+                                                <input type="radio" id="sharedPending" asp-for="Burial.SharedShaft" value="P">
+                                                <label for="sharedPending">Pending</label><br>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 text-sm">
+                                                <input type="radio" id="bmYes" asp-for="Burial.BurialMaterials" value="true">
+                                                <label for="bmYes">Yes</label><br>
+                                            </div>
+                                            <div class="col-6 text-sm">
+                                                <input type="radio" id="bmNo" asp-for="Burial.BurialMaterials" value="false">
+                                                <label for="bmNo">No</label><br>
+                                            </div>
+                                        </div>
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.ExcavationRecorder" /><br />
+                                </div>
+                            </div>
+                            <div class="lead text-center p-2">Demographics</div>
+                            <div class="row">
+                                <div class="col-7 text-right font-weight-bold">
+                                    <label asp-for="Burial.HairColor" class="">Hair Color:</label><br /><br />
+                                    <label asp-for="Burial.AgeRange" class="">Age Range:</label><br /><br />
+                                    <label asp-for="Burial.AgeMethod" class="">Age Determinant:</label><br /><br />
+                                    <label asp-for="Burial.AgeCategory" class="">Age Category:</label><br /><br />
+                                    <label asp-for="Burial.EstimatedAge" class="">Estimated Age:</label><br /><br />
+                                    <label asp-for="Burial.EstimatedHeight" class="">Estimated Height:</label><br /><br />
+                                    <label asp-for="Burial.Sex" class="">Sex:</label><br /><br />
+                                    <label asp-for="Burial.SexMethod" class="">Sex Determinant:</label><br /><br />
+                                    <label asp-for="Burial.GeGender" class="">GE Gender:</label><br /><br />
+                                    <label asp-for="Burial.GeFunctionTotal" class="">GE Function Total:</label><br /><br />
+                                    <label asp-for="Burial.BodyColGender" class="">Body Col Gender:</label><br /><br />
+                                    <label asp-for="Burial.ToothEruption" class="">Tooth Eruption:</label><br /><br />
+                                    <label asp-for="Burial.ToothAttrition" class="">Tooth Attrition:</label><br /><br />
+                                    <label asp-for="Burial.PathologyAnomolies" class="">Pathology Anomolies:</label><br />
+                                    <label asp-for="Burial.EpiphysealUnion" class="">Epiphyseal Union:</label><br /><br />
+                                </div>
+                                <div class="col-5 text-left">
+                                    <select id="HairColor" class="form-control form-control-sm" asp-for="Burial.HairColor">
+                                        <option value="B">Brown</option>
+                                        <option value="K">Black</option>
+                                        <option value="A">Brown-Red</option>
+                                        <option value="R">Red</option>
+                                        <option value="D">Blonde</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.AgeRange" /><br />
+                                    <select id="AgeMethod" class="form-control form-control-sm" asp-for="Burial.AgeMethod">
+                                        <option value="S">Skull</option>
+                                        <option value="P">Pelvis</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <select id="AgeCategory" class="form-control form-control-sm" asp-for="Burial.AgeCategory">
+                                        <option value="A">Adult (15+)</option>
+                                        <option value="C">Child (3-15)</option>
+                                        <option value="I">Infant (1-3)</option>
+                                        <option value="N">Newborn (0-1)</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.EstimatedAge" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.EstimatedHeight" step="0.01" /><br />
+                                    <select id="Sex" class="form-control form-control-sm" asp-for="Burial.Sex">
+                                        <option value="F">Female</option>
+                                        <option value="M">Male</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <select id="SexMethod" class="form-control form-control-sm" asp-for="Burial.SexMethod">
+                                        <option value="S">Skull</option>
+                                        <option value="P">Pelvis</option>
+                                        <option value="U">Unknown</option>
+                                    </select><br />
+                                    <select id="GeGender" class="form-control form-control-sm" asp-for="Burial.GeGender">
+                                        <option value="F">Female</option>
+                                        <option value="M">Male</option>
+                                        <option value="U">Undetermined</option>
+                                    </select><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.GeFunctionTotal" step="0.01" /><br />
+                                    <select id="BodyColGender" class="form-control form-control-sm" asp-for="Burial.BodyColGender">
+                                        <option value="F">Female</option>
+                                        <option value="M">Male</option>
+                                        <option value="U">Undetermined</option>
+                                    </select><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.ToothEruption" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.ToothAttrition" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.PathologyAnomolies" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="unionYes" asp-for="Burial.EpiphysealUnion" value="true">
+                                            <label for="unionYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="unionNo" asp-for="Burial.EpiphysealUnion" value="false">
+                                            <label for="unionNo">No</label><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lead text-center p-2">Skull Details</div>
+                            <div class="row">
+                                <div class="col-7 text-right font-weight-bold">
+                                    <label asp-for="Burial.SkullDay" class="">Skull Day:</label><br /><br />
+                                    <label asp-for="Burial.SkullMonth" class="">Skull Month:</label><br /><br />
+                                    <label asp-for="Burial.SkullYear" class="">Skull Year:</label><br /><br />
+                                    <label asp-for="Burial.SkullMagazine" class="">Skull at Magazine:</label><br />
+                                    <label asp-for="Burial.PostcraniaMagazine" class="">Postcrania at Magazine:</label><br />
+                                    <label asp-for="Burial.SkullTrauma" class="">Skull Trauma:</label><br />
+                                    <label asp-for="Burial.PostcraniaTrauma" class="">Postcrania Trauma:</label><br />
+                                </div>
+                                <div class="col-5 text-left">
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.SkullDay" /><br />
+                                    <select id="SkullMonth" class="form-control form-control-sm" asp-for="Burial.SkullMonth">
+                                        <option value="Jan">January</option>
+                                        <option value="Feb">February</option>
+                                        <option value="Mar">March</option>
+                                        <option value="Apr">April</option>
+                                        <option value="May">May</option>
+                                        <option value="Jun">June</option>
+                                        <option value="Jul">July</option>
+                                        <option value="Aug">August</option>
+                                        <option value="Sep">September</option>
+                                        <option value="Oct">October</option>
+                                        <option value="Nov">November</option>
+                                        <option value="Dec">December</option>
+                                    </select><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.SkullYear" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="smagazineYes" asp-for="Burial.SkullMagazine" value="true">
+                                            <label for="smagazineYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="smagazineNo" asp-for="Burial.SkullMagazine" value="false">
+                                            <label for="smagazineNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="pcmagazineYes" asp-for="Burial.PostcraniaMagazine" value="true">
+                                            <label for="pcmagazineYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="pcmagazineNo" asp-for="Burial.PostcraniaMagazine" value="false">
+                                            <label for="pcmagazineNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="straumaYes" asp-for="Burial.SkullTrauma" value="true">
+                                            <label for="straumaYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="straumaNo" asp-for="Burial.SkullTrauma" value="false">
+                                            <label for="straumaNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="pctraumaYes" asp-for="Burial.PostcraniaTrauma" value="true">
+                                            <label for="pctraumaYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="pctraumaNo" asp-for="Burial.PostcraniaTrauma" value="false">
+                                            <label for="pctraumaNo">No</label><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 border border-dark">
+                            <div class="lead text-center p-2">Measurements</div>
+                            <div class="row">
+                                <div class="col-7 text-right font-weight-bold">
+                                    <label asp-for="Burial.BasilarSuture" class="">Basilar Suture:</label><br /><br />
+                                    <label asp-for="Burial.VentralArc" class="">Ventral Arc:</label><br /><br />
+                                    <label asp-for="Burial.SubPubicAngle" class="">Sub-Pubic Angle:</label><br /><br />
+                                    <label asp-for="Burial.SciaticNotch" class="">Sciatic Notch:</label><br /><br />
+                                    <label asp-for="Burial.PubicBone" class="">Pubic Bone:</label><br /><br />
+                                    <label asp-for="Burial.PrearSulcus" class="">Prear Sulcus:</label><br /><br />
+                                    <label asp-for="Burial.MedialIpramus" class="">Medial IP Ramus:</label><br /><br />
+                                    <label asp-for="Burial.DorsalPitting" class="">Dorsal Pitting:</label><br /><br />
+                                    <label asp-for="Burial.ForemanMagnum" class="">Foreman Magnum:</label><br /><br />
+                                    <label asp-for="Burial.FemurHead" class="">Femur Head:</label><br /><br />
+                                    <label asp-for="Burial.HumerusHead" class="">Humerus Head:</label><br /><br />
+                                    <label asp-for="Burial.Osteophytosis" class="">Osteophytosis:</label><br /><br />
+                                    <label asp-for="Burial.PubicSymphysis" class="">Pubic Symphysis:</label><br /><br />
+                                    <label asp-for="Burial.FemurLength" class="">Femur Length:</label><br /><br />
+                                    <label asp-for="Burial.HumerusLength" class="">Humerus Length:</label><br /><br />
+                                    <label asp-for="Burial.TibiaLength" class="">Tibia Length:</label><br /><br />
+                                    <label asp-for="Burial.Robust" class="">Robust:</label><br /><br />
+                                    <label asp-for="Burial.SupraOrbitalRidges" class="">Supraorbital Ridges:</label><br /><br />
+                                    <label asp-for="Burial.OrbitEdge" class="">Orbit Edge:</label><br /><br />
+                                    <label asp-for="Burial.ParietalBossing" class="">Parietal Bossing:</label><br /><br />
+                                    <label asp-for="Burial.Gonian" class="">Gonian:</label><br /><br />
+                                    <label asp-for="Burial.NuchalCrest" class="">Nuchal Crest:</label><br /><br />
+                                    <label asp-for="Burial.ZygomaticCrest" class="">Zygomatic Crest:</label><br /><br />
+                                    <label asp-for="Burial.CranialSuture" class="">Cranial Suture:</label><br />
+                                    <label asp-for="Burial.MaxCranialBreadth" class="">Max Cranial Breadth:</label><br /><br />
+                                    <label asp-for="Burial.MaxCranialLength" class="">Max Cranial Length:</label><br />
+                                    <label asp-for="Burial.BasionBregmaHeight" class="pt-2">Basion Bregma Height:</label><br />
+                                    <label asp-for="Burial.BasionNasion" class="pt-3">Basion Nasion:</label><br />
+                                    <label asp-for="Burial.BizygomaticDiameter" class="pt-3">Bizygomatic Diameter:</label><br />
+                                    <label asp-for="Burial.NasionProsthion" class="pt-3 pb-1">Nasion Prosthion:</label><br />
+                                    <label asp-for="Burial.MaxNasalBreadth" class="pt-3 pb-1">Max Nasal Breadth:</label><br />
+                                    <label asp-for="Burial.InterOrbitalBreadth" class="pt-3 pb-1">Interorbital Breadth:</label><br />
+                                    <label asp-for="Burial.TmjOa" class="pt-3">TMJ Osteoarthritis:</label><br />
+                                    <label asp-for="Burial.LinearHypoplasiaEnamel" class="">Linear Hypoplasia Enamel:</label><br />
+                                    <label asp-for="Burial.MetopicSuture" class="">Metopic Suture:</label><br />
+                                </div>
+                                <div class="col-5 text-left">
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="bsutureYes" asp-for="Burial.BasilarSuture" value="true">
+                                            <label for="bsutureYes">Open</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="bsutureYes" asp-for="Burial.BasilarSuture" value="false">
+                                            <label for="bsutureYes">Closed</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.VentralArc" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.SubPubicAngle" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.SciaticNotch" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.PrearSulcus" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.MedialIpramus" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.DorsalPitting" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.ForemanMagnum" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.FemurHead" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.HumerusHead" step="0.01" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.Osteophytosis" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.PubicSymphysis" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.FemurLength" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.HumerusLength" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.TibiaLength" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.Robust" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.SupraOrbitalRidges" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.OrbitEdge" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.ParietalBossing" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.Gonian" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.NuchalCrest" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.ZygomaticCrest" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="csutureYes" asp-for="Burial.CranialSuture" value="true">
+                                            <label for="csutureYes">Open</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="csutureNo" asp-for="Burial.CranialSuture" value="false">
+                                            <label for="csutureNo">Closed</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.MaxCranialBreadth" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.MaxCranialLength" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.BasionBregmaHeight" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.BasionNasion" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.BizygomaticDiameter" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.NasionProsthion" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.MaxNasalBreadth" step="0.01" /><br />
+                                    <input type="number" class="form-control form-control-sm" asp-for="Burial.InterOrbitalBreadth" step="0.01" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="tmjoaYes" asp-for="Burial.TmjOa" value="true">
+                                            <label for="tmjoaYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="tmjoaNo" asp-for="Burial.TmjOa" value="false">
+                                            <label for="tmjoaNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="lheYes" asp-for="Burial.LinearHypoplasiaEnamel" value="true">
+                                            <label for="lheYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="lheNo" asp-for="Burial.LinearHypoplasiaEnamel" value="false">
+                                            <label for="lheNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="msutureYes" asp-for="Burial.MetopicSuture" value="true">
+                                            <label for="msutureYes">Open</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="msutureNo" asp-for="Burial.MetopicSuture" value="false">
+                                            <label for="msutureNo">Closed</label><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-12">
+                            <div class="lead text-center p-2">Additional Information</div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-4 border border-dark">
+                            <div class="row">
+                                <div class="col-5 text-right font-weight-bold">
+                                    <label asp-for="Burial.FieldBook" class="">Field Book:</label><br />
+                                    <label asp-for="Burial.FieldBookPage" class="">FB Page:</label><br />
+                                    <label asp-for="Burial.DeexpertInitials" class="">Expert Initials:</label><br />
+                                    <label asp-for="Burial.DecheckerInitials" class="">Checker Initials:</label><br />
+                                    <label asp-for="Burial.Goods" class="">Goods:</label><br />
+                                </div>
+                                <div class="col-7 text-left">
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.FieldBook" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.FieldBookPage" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.DeexpertInitials" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.DecheckerInitials" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="goodsYes" asp-for="Burial.Goods" value="true">
+                                            <label for="goodsYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="goodsNo" asp-for="Burial.Goods" value="false">
+                                            <label for="goodsNo">No</label><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 border border-dark">
+                            <div class="row">
+                                <div class="col-6 text-right font-weight-bold">
+                                    <label asp-for="Burial.PoroticHypertosis" class="">Porotic Hypertosis:</label><br />
+                                    <label asp-for="Burial.PhLocation" class="">PH Location:</label><br />
+                                    <label asp-for="Burial.ButtonOsteoma" class="">Button Osteoma:</label><br />
+                                    <label asp-for="Burial.CribraOrbitala" class="">Cribra Orbitala:</label><br />
+                                    <label asp-for="Burial.OsteologyUnknown" class="">Osteology Unknown:</label><br />
+                                    <label asp-for="Burial.FaceBundle" class="">Face Bundle:</label><br />
+                                </div>
+                                <div class="col-6 text-left">
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="phYes" asp-for="Burial.PoroticHypertosis" value="true">
+                                            <label for="phYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="phNo" asp-for="Burial.PoroticHypertosis" value="false">
+                                            <label for="phNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.PhLocation" /><br />
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="boYes" asp-for="Burial.ButtonOsteoma" value="true">
+                                            <label for="boYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="boNo" asp-for="Burial.ButtonOsteoma" value="false">
+                                            <label for="boNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="coYes" asp-for="Burial.CribraOrbitala" value="true">
+                                            <label for="coYes">Yes</label><br>
+                                        </div>
+                                        <div class="col-6 text-sm">
+                                            <input type="radio" id="coNo" asp-for="Burial.CribraOrbitala" value="false">
+                                            <label for="coNo">No</label><br>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.OsteologyUnknown" /><br />
+                                    <input type="text" class="form-control form-control-sm" asp-for="Burial.FaceBundle" /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 border border-dark">
+                            <div class="row p-2 text-left">
+                                    <label asp-for="Burial.OsteologyNotes" class="font-weight-bold">Osteology Notes:</label><br />
+                                    <textarea rows="12" class="form-control form-control-sm" asp-for="Burial.OsteologyNotes"></textarea><br />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,83 @@
+﻿@{ ViewBag.Header = "Create Sample Record";}
+
+@model Sample
+
+<div class="col-12 card shadow p-5 m-auto" style="width: 50rem;">
+    <div class="row border border-dark p-2">
+        <div class="col-12 border border-dark p-2">
+            <div class="lead text-center p-2">BurialSample #_</div>
+        </div>
+    </div>
+    <div class="row border border-dark p-2">
+        <div class="col-6 border border-dark p-2">
+            <div class="row">
+                <div class="col-6 text-right font-weight-bold">
+                    <label asp-for="Area" class="">Area:</label><br /><br />
+                    <label asp-for="Size" class="">Size:</label><br /><br />
+                    <label asp-for="Foci" class="">Foci:</label><br /><br />
+                    <label asp-for="Rack" class="">Rack:</label><br /><br />
+                    <label asp-for="TubeNo" class="">Tube #:</label><br /><br />
+                    <label asp-for="Category" class="">Category:</label><br /><br />
+                    <label asp-for="ConventionalAgeBp" class="">Conventional Age BP:</label><br /><br />
+                </div>
+                <div class="col-6 text-left">
+                    <input type="number" class="form-control form-control-sm" asp-for="Area" /><br />
+                    <input type="number" class="form-control form-control-sm" asp-for="Size" /><br />
+                    <input type="number" class="form-control form-control-sm" asp-for="Foci" /><br />
+                    <input type="number" class="form-control form-control-sm" asp-for="Rack" /><br />
+                    <input type="number" class="form-control form-control-sm" asp-for="TubeNo" /><br />
+                    <input type="text" class="form-control form-control-sm" asp-for="Category" /><br />
+                    <input type="number" class="form-control form-control-sm" asp-for="ConventionalAgeBp" /><br />
+                </div>
+            </div>
+            <div class="row p-2 text-left m-1">
+                    <hr class="border border-dark" />
+                    <label asp-for="Question" class="font-weight-bold">Question:</label>
+                    <textarea rows="5" class="form-control form-control-sm" asp-for="Question"></textarea><br />
+            </div>
+        </div>
+        <div class="col-6 border border-dark p-2">
+            <div class="lead text-center p-2">C14 Calendar Dates</div>
+            <div class="row">
+                <div class="col-7 text-right font-weight-bold">
+                    <label asp-for="C14sample" class="">C14 Sample #:</label><br />
+                    <label asp-for="CalendarDate14C" class="">Calendar Date:</label><br /><br />
+                    <label asp-for="MinCalibratedCalendarDate" class="">Min Calibrated Date:</label><br /><br />
+                    <label asp-for="MaxCalibratedCalendarDate" class="">Max Calibrated Date:</label><br /><br />
+                    <label asp-for="AvgCalibratedCalendarDate" class="">Avg Calibrated Date:</label><br /><br />
+                    <label asp-for="SpanCalibratedCalendarDate" class="">Span Calibrated Date:</label><br /><br />
+                </div>
+                <div class="col-5 text-left">
+                    <div class="row">
+                        <div class="col-6 text-sm">
+                            <input type="radio" id="c14Yes" asp-for="C14sample" value="true">
+                            <label for="c14Yes">Yes</label><br>
+                        </div>
+                        <div class="col-6 text-sm">
+                            <input type="radio" id="c14No" asp-for="C14sample" value="false">
+                            <label for="c14No">No</label><br>
+                        </div>
+                    </div>
+                    <input type="date" class="form-control form-control-sm" asp-for="CalendarDate14C" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="MinCalibratedCalendarDate" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="MaxCalibratedCalendarDate" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="AvgCalibratedCalendarDate" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="SpanCalibratedCalendarDate" /><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    <label asp-for="Notes" class="font-weight-bold">Notes:</label>
+                    <textarea  rows="10" class="form-control form-control-sm" asp-for="Notes"></textarea><br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-left border border-dark">
+            <label asp-for="LocationDesc" class="font-weight-bold">Location Description:</label>
+            <textarea  rows="4" class="form-control form-control-sm" asp-for="LocationDesc"></textarea><br />
+        </div>
+    </div>
+</div>

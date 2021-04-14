@@ -1,0 +1,229 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+
+
+/* Custom Styles & Overwrites
+-------------------------------------------------- */
+
+/*Variables*/
+:root {
+    --primary-color: #3f1378;
+    --primary-color-dark: #1b112c;
+    --second-color: #cd853f; /*(peru)*/
+    --second-color-dark: #bd752f;
+    --tertiary-color: #092175;
+    --txtcolor-one: black;
+    --txtcolor-two: #fff;
+    --overlay: rgba(27, 17, 44, 1);
+    --overlay2: rgba(27, 17, 44, .6);
+    --overlay3: rgba(27, 17, 44, .4);
+    --overlay4: rgba(27, 17, 44, .2);
+}
+
+/*General*/
+.nightskyhead {
+    background: url("../img/nightskybanner_comp.jpg") no-repeat center center;
+    background-position: center;
+    background-size: cover;
+    border: none;
+}
+
+.nightskyfoot {
+    background: linear-gradient(to bottom, var(--overlay) 5px, var(--overlay4) 50%), url("../img/nightskybanner_comp.jpg") no-repeat center center;
+    background-position: center;
+    background-size: cover;
+    border: none;
+}
+
+.tableheader {
+    background: var(--primary-color-dark);
+    margin-top: -1px;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--overlay4) 0px, var(--overlay3) 20%, var(--overlay2) 40%, var(--overlay) 95%), url("../img/lightsand_comp.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.bulge {
+    transition: all .2s;
+}
+
+    .bulge:hover {
+        transform: scale(1.05);
+        /*transform: translateZ(0);*/
+    }
+
+.mummy {
+    font-family: "Rage", "Arial";
+    font-size: 30px;
+    color: peru;
+    margin-bottom: -.1rem;
+}
+
+.logo {
+    position: absolute;
+    top: 7.5px;
+    left: 7.5px;
+}
+
+.nopacity {
+    /*background: rgba(205, 133, 63, .5); (peru with .5 opacity)*/
+    /*/background: rgba(255, 255, 255, .75);*/
+    background: rgba(27, 17, 44, .7);
+    color: white;
+    z-index: 2;
+}
+
+.borderless {
+    border-collapse: collapse;
+}
+
+.headr {
+    color: white;
+}
+
+.aTag {
+    margin: 4px;
+}
+.wrapperTag {
+    padding: 5px;
+    background: var(--second-color);
+}
+
+/*Buttons*/
+.bttn-one {
+    display: inline-block;
+    font-weight: 400;
+    color: var(--txtcolor-two);
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--primary-color-dark);
+    border: 1px solid var(--primary-color);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .bttn-one:hover {
+        color: #fff;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: scale()
+    }
+
+
+.bttn-two {
+    display: inline-block;
+    font-weight: 400;
+    color: var(--txtcolor-two);
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--second-color-dark);
+    border: 1px solid var(--second-color);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .bttn-two:hover {
+        color: #fff;
+        background-color: var(--second-color);
+        border-color: var(--second-color);
+    }
+
+
+th {
+    border-top: none;
+}
+
+.dropdown-item:hover {
+    background: #1b112c;
+}

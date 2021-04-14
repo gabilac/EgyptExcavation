@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Header = "Upload Photos";
+}
+@model IEnumerable<int>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-10 mx-auto" align="center">
+
+            <div class="card nopacity shadow m-5 p-5">
+                <h4 class="text-center" align="center"><strong>Select ID of associated burial.</strong></h4>
+
+                <form action="UploadPhotos" method="post">
+                    <select>
+                        @foreach (var i in Model)
+                        {
+                            <option asp-route-id="@i">@i</option>
+                        }
+                    </select>
+
+                    <label for="photoUp">Upload</label>
+                    <input type="file" id="photoUp" />
+
+                    <button class="bttn-one" type="submit" />
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

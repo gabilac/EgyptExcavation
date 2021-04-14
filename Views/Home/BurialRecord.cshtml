@@ -1,0 +1,436 @@
+﻿@{ ViewBag.Header = "Burial Record"; }
+
+@model EgyptExcavation.Models.ViewModels.BurialViewModel
+@inject SignInManager<IdentityUser> signInManager;
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 mx-auto" align="center">
+            <div class="col-12 card shadow p-5 m-3" style="width: 50rem;">
+                <div class="row border border-dark p-2">
+                    <div class="col-12 border border-dark p-2">
+                        <div class="lead text-center p-2">Burial Record #_</div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-7 border border-dark p-2">
+                        <div class="lead text-center p-2">Location</div>
+                        <div class="row">
+                            <div class="col-4 text-right">
+                                Square:<br />
+                                Quadrant:<br />
+                                Date Found:<br />
+                                Year Exc.:<br />
+                                Category:<br />
+                                Burial Length:<br />
+                                Burial Type:<br />
+                                Tomb No.:<br />
+                            </div>
+                            <div class="col-8 text-left font-weight-bold">
+                                @Model.Square.NsDistance @Model.Square.Ns @Model.Square.EwDistance @Model.Square.Ew <br />
+                                @Model.Burial.Quadrant <br />
+                                @Model.Burial.DayFound @Model.Burial.MonthFound @Model.Burial.YearFound<br />
+                                @Model.Burial.YearExcavated <br />
+                                @Model.Burial.Category <br />
+                                @{Model.CalcPlotSize(Model.Burial);} <br />
+                                @Model.Burial.BurialType<br />
+                                @Model.Burial.TombNo <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 border border-dark p-2">
+                        <div class="lead text-center p-2">Body Position</div>
+                        <div class="row">
+                            <div class="col-7 text-right">
+                                West to Head: <br />
+                                West to Feet: <br />
+                                South to Head: <br />
+                                South to Feet: <br />
+                                BYU Sample: <br />
+                                Rack/Shelf: <br />
+                            </div>
+                            <div class="col-5 text-left font-weight-bold">
+                                @Model.Burial.WtoHead <br />
+                                @Model.Burial.WtoFeet <br />
+                                @Model.Burial.StoHead <br />
+                                @Model.Burial.StoFeet <br />
+                                @Model.Burial.Byusample <br />
+                                @Model.Burial.RackShelf <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-left">
+                                <hr class="border border-dark" />
+                                Location Notes: <span class="font-weight-bold">@Model.Burial.Notes </span> <br /><br /><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-12">
+                        <div class="lead text-center p-2">Samples</div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-7 border border-dark">
+                        <div class="row p-2 text-left">
+                            Sample Description: <span class="font-weight-bold">@Model.Burial.SampleDesc</span> <br /><br /><br />
+                        </div>
+                        <div class="row p-2 border-top border-dark text-left">
+                            Artifact Description: <span class="font-weight-bold">@Model.Burial.ArtifactDesc</span > <br /><br /><br />
+</div>
+                    </div>
+                    <div class="col-5 border border-dark">
+                        <div class="row">
+                            <div class="col-7 text-right">
+                                Hair taken? <br />
+                                Soft tissue taken? <br />
+                                Tooth taken? <br />
+                                Bone taken? <br />
+                                Textile taken? <br />
+                                Other taken? <br />
+                                Artifact taken? <br />
+                            </div>
+                            <div class="col-5 text-left font-weight-bold">
+                                @Model.Burial.HairTaken <br />
+                                @Model.Burial.SoftTissueTaken <br />
+                                @Model.Burial.ToothTaken <br />
+                                @Model.Burial.BoneTaken <br />
+                                @Model.Burial.TextileTaken <br />
+                                @Model.Burial.SampleTaken <br />
+                                @Model.Burial.ArtifactFound <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-12">
+                        <a class="lead text-center p-2" href="#samples">View Samples</a>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-12">
+                        <div class="lead text-center p-2">Individual</div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-6 border border-dark">
+                        <div class="lead text-center p-2">Burial Details</div>
+                        <div class="row">
+                            <div class="col-6 text-right">
+                                Burial Wrapping: <br />
+                                Preservation Index: <br />
+                                Preservation Notes: <br />
+                                Depth: <br />
+                                Head Direction: <br />
+                                Cluster: <br />
+                                Hill Area: <br />
+                                Length of Remains: <br />
+                                Photo Taken? <br />
+                                Shaft: <br />
+                                Shared Shaft? <br />
+                                Burial Materials? <br />
+                                Excavation Recorder: <br />
+                            </div>
+                            <div class="col-6 text-left font-weight-bold">
+                                @Model.Burial.BurialWrapping <br />
+                                @Model.Burial.PreservationIndex <br />
+                                @Model.Burial.PreservationNotes <br />
+                                @Model.Burial.Depth <br />
+                                @Model.Burial.HeadDirection <br />
+                                @Model.Burial.Cluster <br />
+                                @Model.Burial.HillArea <br />
+                                @Model.Burial.LengthofRemains <br />
+                                @Model.Burial.PhotoTaken <br />
+                                @Model.Burial.Shaft <br />
+                                @Model.Burial.SharedShaft <br />
+                                @Model.Burial.BurialMaterials <br />
+                                @Model.Burial.ExcavationRecorder <br />
+                            </div>
+                        </div>
+                        <div class="lead text-center p-2">Demographics</div>
+                        <div class="row">
+                            <div class="col-6 text-right">
+                                Hair Color: <br />
+                                Age Range: <br />
+                                Age Determinant: <br />
+                                Age Category: <br />
+                                Estimated Age: <br />
+                                Estimated Height: <br />
+                                Sex: <br />
+                                Sex Determinant: <br />
+                                GE Gender: <br />
+                                GE Function Total: <br />
+                                Body Col Gender: <br />
+                                Tooth Eruption: <br />
+                                Tooth Attrition: <br />
+                                Pathology Anomolies: <br />
+                                Epiphyseal Union: <br />
+                            </div>
+                            <div class="col-6 text-left font-weight-bold">
+                                @Model.Burial.HairColor <br />
+                                @Model.Burial.AgeRange <br />
+                                @Model.Burial.AgeMethod <br />
+                                @Model.Burial.AgeCategory <br />
+                                @Model.Burial.EstimatedAge <br />
+                                @Model.Burial.EstimatedHeight <br />
+                                @Model.Burial.Sex <br />
+                                @Model.Burial.SexMethod <br />
+                                @Model.Burial.GeGender <br />
+                                @Model.Burial.GeFunctionTotal <br />
+                                @Model.Burial.BodyColGender <br />
+                                @Model.Burial.ToothEruption <br />
+                                @Model.Burial.ToothAttrition <br />
+                                @Model.Burial.PathologyAnomolies <br />
+                                @Model.Burial.EpiphysealUnion <br />
+                            </div>
+                        </div>
+                        <div class="lead text-center p-2">Skull Details</div>
+                        <div class="row">
+                            <div class="col-6 text-right">
+                                Skull Year: <br />
+                                Skull Month: <br />
+                                Skull Day: <br />
+                                Skull At Magazine: <br />
+                                Postcrania At Magazine: <br />
+                                Skull Trauma: <br />
+                                Postcrania Trauma: <br />
+                            </div>
+                            <div class="col-6 text-left font-weight-bold">
+                                @Model.Burial.SkullYear <br />
+                                @Model.Burial.SkullMonth <br />
+                                @Model.Burial.SkullDay <br />
+                                @Model.Burial.SkullMagazine <br />
+                                @Model.Burial.PostcraniaMagazine <br />
+                                @Model.Burial.SkullTrauma <br />
+                                @Model.Burial.PostcraniaTrauma <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 border border-dark">
+                        <div class="lead text-center p-2">Measurements</div>
+                        <div class="row">
+                            <div class="col-6 text-right">
+                                Basilar Suture: <br />
+                                Ventral Arc: <br />
+                                Sub-pubic Angle: <br />
+                                Sciatic Notch: <br />
+                                Prear Sulcus: <br />
+                                Medial IP Ramus: <br />
+                                Dorsal Pitting: <br />
+                                Foreman Magnum: <br />
+                                Femur Head: <br />
+                                Humerus Head: <br />
+                                Osteophytosis: <br />
+                                Pubic Symphysis: <br />
+                                Femur Length: <br />
+                                Humerus Length: <br />
+                                Tibia Length: <br />
+                                Robust: <br />
+                                Supraorbital Ridges: <br />
+                                Orbit Edge: <br />
+                                Parietal Bossing:
+                                Gonian: <br />
+                                Nuchal Crest: <br />
+                                Zygomatic Crest: <br />
+                                Cranial Suture: <br />
+                                Max Cranial Breadth: <br />
+                                Max Cranial Length: <br />
+                                Basio Bregma Height: <br />
+                                Basion Nasion: <br />
+                                Bizygomatic Diameter: <br />
+                                Nasion Prosthion: <br />
+                                Max Nasal Breadth: <br />
+                                Interorbital Breadth: <br />
+                                TMJ Osteoarthritis: <br />
+                                Linear Hypoplasia Enamel: <br />
+                                Osteology Unknown: <br />
+                                Cribra Orbitala: <br />
+                                Porotic Hypertosis: <br />
+                                PH Location: <br />
+                                Metopic Suture: <br />
+                                Button Osteoma: <br />
+                                Goods: <br />
+                                Face Bundle: <br />
+                            </div>
+                            <div class="col-6 text-left font-weight-bold">
+                                @Model.Burial.BasilarSuture <br />
+                                @Model.Burial.VentralArc <br />
+                                @Model.Burial.SubPubicAngle <br />
+                                @Model.Burial.SciaticNotch <br />
+                                @Model.Burial.PrearSulcus <br />
+                                @Model.Burial.MedialIpramus <br />
+                                @Model.Burial.DorsalPitting <br />
+                                @Model.Burial.ForemanMagnum <br />
+                                @Model.Burial.FemurHead <br />
+                                @Model.Burial.HumerusHead <br />
+                                @Model.Burial.Osteophytosis <br />
+                                @Model.Burial.PubicSymphysis <br />
+                                @Model.Burial.FemurLength <br />
+                                @Model.Burial.HumerusLength <br />
+                                @Model.Burial.TibiaLength <br />
+                                @Model.Burial.Robust <br />
+                                @Model.Burial.SupraOrbitalRidges <br />
+                                @Model.Burial.OrbitEdge <br />
+                                @Model.Burial.ParietalBossing
+                                @Model.Burial.Gonian <br />
+                                @Model.Burial.NuchalCrest <br />
+                                @Model.Burial.ZygomaticCrest <br />
+                                @Model.Burial.CranialSuture <br />
+                                @Model.Burial.MaxCranialBreadth <br />
+                                @Model.Burial.MaxCranialLength <br />
+                                @Model.Burial.BasionBregmaHeight <br />
+                                @Model.Burial.BasionNasion <br />
+                                @Model.Burial.BizygomaticDiameter <br />
+                                @Model.Burial.NasionProsthion <br />
+                                @Model.Burial.MaxNasalBreadth <br />
+                                @Model.Burial.InterOrbitalBreadth <br />
+                                @Model.Burial.TmjOa <br />
+                                @Model.Burial.LinearHypoplasiaEnamel <br />
+                                @Model.Burial.OsteologyUnknown <br />
+                                @Model.Burial.CribraOrbitala <br />
+                                @Model.Burial.PoroticHypertosis <br />
+                                @Model.Burial.PhLocation <br />
+                                @Model.Burial.MetopicSuture <br />
+                                @Model.Burial.ButtonOsteoma <br />
+                                @Model.Burial.Goods <br />
+                                @Model.Burial.FaceBundle <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-12">
+                        <div class="lead text-center p-2">Additional Information</div>
+                    </div>
+                </div>
+                <div class="row border border-dark p-2">
+                    <div class="col-4 border border-dark">
+                        <div class="row">
+                            <div class="col-7 text-right">
+                                Field Book: <br />
+                                FB Page: <br />
+                                Expert Initials: <br />
+                                Checker Initials: <br />
+                            </div>
+                            <div class="col-5 text-left font-weight-bold">
+                                @Model.Burial.FieldBook <br />
+                                @Model.Burial.FieldBookPage <br /><br />
+                                @Model.Burial.DeexpertInitials <br /><br />
+                                @Model.Burial.DecheckerInitials <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 border border-dark text-left">
+                        <div class="row p-2">
+                            Osteology Notes: <span class="font-weight-bold">@Model.Burial.OsteologyNotes</span><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="samples">
+                @foreach (var s in Model.Samples)
+                {
+
+
+                <div class="col-12 card shadow p-5 m-3" style="width: 50rem;">
+                    <div class="row border border-dark p-2">
+                        <div class="col-12 border border-dark p-2">
+                            <div class="lead text-center p-2">BurialSample #@s.SampleId</div>
+                        </div>
+                    </div>
+                    <div class="row border border-dark p-2">
+                        <div class="col-6 border border-dark p-2">
+                            <div class="lead text-center p-2">Sample Details</div>
+                            <div class="row">
+                                <div class="col-6 text-right">
+                                    Area:<br />
+                                    Size:<br />
+                                    Foci:<br />
+                                    Rack:<br />
+                                    Tube No.:<br />
+                                    Category:<br />
+                                    Conventional Age BP:<br />
+                                </div>
+                                <div class="col-6 text-left font-weight-bold">
+                                    @s.Area <br />
+                                    @s.Size <br />
+                                    @s.Foci <br />
+                                    @s.Rack <br />
+                                    @s.TubeNo <br />
+                                    @s.Category <br />
+                                    @s.ConventionalAgeBp <br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-left">
+                                    <hr class="border border-dark" />
+                                    Question: <span class="font-weight-bold">@s.Question</span> <br /><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 border border-dark p-2">
+                            <div class="lead text-center p-2">C14 Calendar Dates</div>
+                            <div class="row">
+                                <div class="col-7 text-right">
+                                    C14 Sample? <br />
+                                    Calendar Date: <br />
+                                    Min Calibrated Date: <br />
+                                    Max Calibrated Date: <br />
+                                    Span Calibrated Date: <br />
+                                </div>
+                                <div class="col-5 text-left font-weight-bold">
+                                    @s.C14sample <br />
+                                    @s.CalendarDate14C <br />
+                                    @s.MinCalibratedCalendarDate <br />
+                                    @s.MaxCalibratedCalendarDate <br />
+                                    @s.AvgCalibratedCalendarDate <br />
+                                    @s.SpanCalibratedCalendarDate <br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-left">
+                                    <hr class="border border-dark" />
+                                    Notes: <span class="font-weight-bold">@s.Notes</span> <br /><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left border border-dark">
+                            <div class="row p-2 text-left">
+                                Location Description: <span class="font-weight-bold">@s.LocationDesc</span> <br /><br /><br />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                }
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Researcher")))
+                {
+            <div>
+                <form asp-action="" asp-controller="Home" method="post">
+                    <input type="hidden" name="BurialKey"
+                           value="@Model.Burial.BurialKey" />
+                    <button type="submit" class="btn btn-sm btn-dark">
+                        Edit Record
+                    </button>
+                </form>
+            </div>}
+                <br />
+                @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+                {
+            <div>
+                <form asp-action="DeleteBurialRecord" asp-controller="Home" method="post">
+                    <input type="hidden" name="BurialKey"
+                           value="@Model.Burial.BurialKey" />
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete Record
+                    </button>
+                </form>
+            </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

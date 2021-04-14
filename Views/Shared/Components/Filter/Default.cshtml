@@ -1,0 +1,125 @@
+﻿@model BurialsViewModel
+
+
+<form class="form" action="Burials" method="post">
+
+    <div class="form-group m-3">
+        <h5>Burial Identification</h5>
+        <hr style="background-color: white;"/>
+        <input asp-for="BurialFilterModel.BurialCompositeId" />
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Year Found</h5>
+        <hr style="background-color: white;" />
+        <label asp-for="BurialFilterModel.YearFoundFrom">Year From</label>
+        <input asp-for="BurialFilterModel.YearFoundFrom" />
+        <br />
+        <label asp-for="BurialFilterModel.YearFoundTo">Year To</label>
+        <input asp-for="BurialFilterModel.YearFoundTo" />
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Gender</h5>
+        <hr style="background-color: white;" />
+        <select asp-for="BurialFilterModel.BodyColGender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="U">Unknown</option>
+        </select>
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Estimated Age</h5>
+        <hr style="background-color: white;" />
+        <label asp-for="BurialFilterModel.EstimatedAgeFrom">Min Age</label>
+        <input asp-for="BurialFilterModel.EstimatedAgeFrom" />
+        <br />
+        <label asp-for="BurialFilterModel.EstimatedAgeTo">Max Age</label>
+        <input asp-for="BurialFilterModel.EstimatedAgeTo" />
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Hair Color</h5>
+        <hr style="background-color: white;" />
+        <select asp-for="BurialFilterModel.HairColor">
+            <option value="B">Light &amp; Dark Brown</option>
+            <option value="K">Black</option>
+            <option value="A">Auburn (Brown-Red)</option>
+            <option value="R">Red / Red-Black</option>
+            <option value="D">Blonde</option>
+            <option value="U">Unknown</option>
+        </select>
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Burial Depth</h5>
+        <hr style="background-color: white;" />
+        <label asp-for="BurialFilterModel.DepthFrom">Min Depth</label>
+        <input asp-for="BurialFilterModel.DepthFrom" />
+        <br />
+        <label asp-for="BurialFilterModel.DepthTo">Max Depth</label>
+        <input asp-for="BurialFilterModel.DepthTo" />
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Remains Length</h5>
+        <hr style="background-color: white;" />
+        <label asp-for="BurialFilterModel.LengthofRemainsFrom">Min Length</label>
+        <input asp-for="BurialFilterModel.LengthofRemainsFrom" />
+        <br />
+        <label asp-for="BurialFilterModel.LengthofRemainsTo">Max Length</label>
+        <input asp-for="BurialFilterModel.LengthofRemainsTo" />
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Head Direction</h5>
+        <hr style="background-color: white;" />
+        <select asp-for="BurialFilterModel.HeadDirection">
+            <option value="W">West</option>
+            <option value="E">East</option>
+            <option value="N">North</option>
+            <option value="S">South</option>
+        </select>
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Samples</h5>
+        <hr style="background-color: white;" />
+        <label asp-for="BurialFilterModel.HairTaken"></label>
+        <input asp-for="BurialFilterModel.HairTaken"/>
+        <br /><br />
+        <label asp-for="BurialFilterModel.SoftTissueTaken"></label>
+        <input asp-for="BurialFilterModel.SoftTissueTaken" />
+        <br /><br />
+        <label asp-for="BurialFilterModel.BoneTaken"></label>
+        <input asp-for="BurialFilterModel.BoneTaken" />
+        <br /><br />
+        <label asp-for="BurialFilterModel.ToothTaken"></label>
+        <input asp-for="BurialFilterModel.ToothTaken" />
+        <br /><br />
+        <label asp-for="BurialFilterModel.TextileTaken"></label>
+        <input asp-for="BurialFilterModel.TextileTaken" />
+        <br /><br />
+        <label asp-for="BurialFilterModel.ArtifactFound"></label>
+        <input asp-for="BurialFilterModel.ArtifactFound" />
+        <br /><br />
+    </div>
+    <br />
+    <div class="form-group m-3">
+        <h5>Search Notes</h5>
+        <hr style="background-color: white;" />
+        <input asp-for="BurialFilterModel.Notes" />
+    </div>
+    <br />
+    <div style="width:100%;margin: 10px auto;">
+        <button class="bttn-one mx-auto" type="submit" style="width:80%">Apply Filter</button>
+        <br /><br />
+        <a class="bttn-one mx-auto" style="width:80%"
+           asp-action="Burials" asp-controller="Home"
+           asp-route-category="">
+            Reset Filter
+        </a>
+    </div>
+</form>
+

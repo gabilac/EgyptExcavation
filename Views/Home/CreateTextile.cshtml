@@ -1,0 +1,134 @@
+﻿@{ ViewBag.Header = "Create Textile";}
+
+@model Textile
+
+<div class="col-12 card shadow p-5 m-auto" style="width: 50rem;">
+    <div class="row border border-dark p-2">
+        <div class="col-12 border border-dark p-2">
+            <div class="lead text-center p-2">Textile #_</div>
+        </div>
+    </div>
+    <div class="row border border-dark p-2">
+        <div class="col-6 border border-dark p-2">
+            <div class="lead text-center p-2">Analysis Details</div>
+            <div class="row">
+                <div class="col-6 text-right font-weight-bold">
+                    <label asp-for="AnalysisDate" class="">Analysis Date:</label><br /><br />
+                    <label asp-for="AnalysisType" class="">Analysis Type:</label><br /><br />
+                    <label asp-for="Analyst" class="">Analyst Initials:</label><br /><br />
+                    <label asp-for="PhotoDate" class="">Photo Date:</label><br /><br />
+                    <label asp-for="SampledDate" class="">Sample Date:</label><br /><br />
+                    <label asp-for="ScientificDate" class="">Scientific Date:</label><br /><br />
+                    <label asp-for="Copy" class="">Copy?</label><br /><br />
+                </div>
+                <div class="col-6 text-left">
+                    <input type="date" class="form-control form-control-sm" asp-for="AnalysisDate" /><br />
+                    <input type="text" class="form-control form-control-sm" asp-for="AnalysisType" /><br />
+                    <input type="number" class="form-control form-control-sm" asp-for="Analyst" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="PhotoDate" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="SampledDate" /><br />
+                    <input type="date" class="form-control form-control-sm" asp-for="ScientificDate" /><br />
+                    <div class="row">
+                        <div class="col-6 text-sm">
+                            <input type="radio" id="copyYes" name="Copy" value="true">
+                            <label for="copyYes">Yes</label><br>
+                        </div>
+                        <div class="col-6 text-sm">
+                            <input type="radio" id="copyNo" name="Copy" value="false">
+                            <label for="copyNo">No</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    <label asp-for="Function" class="font-weight-bold">Function:</label>
+                    <input type="text" class="form-control form-control-sm" asp-for="Function"/>
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    <label asp-for="Decoration" class="font-weight-bold">Decoration:</label>
+                    <input type="text" class="form-control form-control-sm" asp-for="Decoration" />
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    <label asp-for="Color" class="font-weight-bold">Color:</label>
+                    <input type="text" class="form-control form-control-sm" asp-for="Color" />
+                </div>
+                <div class="col-12 text-left">
+                    <hr class="border border-dark" />
+                    <label asp-for="Component" class="font-weight-bold">Component:</label>
+                    <input type="text" class="form-control form-control-sm" asp-for="Component" />
+                </div>
+            </div>
+        </div>
+        <div class="col-6 border border-dark p-2">
+            <div class="lead text-center p-2">Warp &amp; Weft Details</div>
+            <div class="row">
+                <div class="col-6 text-right">
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Manipulation" class="font-weight-bold">Manipulation:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Manipulation"></textarea><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Ply" class="font-weight-bold">Ply:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Ply"></textarea><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Angle" class="font-weight-bold">Angle:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Angle"></textarea><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Thickness" class="font-weight-bold">Thickness:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Thickness"></textarea><br />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-left">
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Material" class="font-weight-bold">Material:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Material"></textarea><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Direction" class="font-weight-bold">Direction:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Direction"></textarea><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Count" class="font-weight-bold">Count:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Count"></textarea><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <hr class="border border-dark" />
+                            <label asp-for="Category" class="font-weight-bold">Category:</label>
+                            <textarea rows="5" class="form-control form-control-sm" asp-for="Category"></textarea><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-left border border-dark">
+            <label asp-for="Description" class=" font-weight-bold">Description:</label>
+            <input type="text" class="form-control form-control-sm" asp-for="Description" /><br />
+        </div>
+    </div>
+</div>
